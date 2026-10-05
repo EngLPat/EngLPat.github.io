@@ -120,6 +120,8 @@ Other things you can change:
 
 1. Add the site to **Google Search Console**
    (https://search.google.com/search-console) and submit
-   `https://englpat.github.io/sitemap.xml`.
+   `https://englpat.github.io/sitemap.xml`. The file
+   `google50627fe461186cd4.html` in this folder proves to Google that the site
+   is yours: **never delete it**, or Search Console stops working.
 2. Link to the site from your Imperial profile, Google Scholar, LinkedIn and
    GitHub. Those links help people find it more than anything else.
