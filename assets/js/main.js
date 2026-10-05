@@ -91,14 +91,15 @@
   }
   END OF PREVIOUS VERSION */
 
-  // Easter egg: click the © in the footer and the elephant walks along the footer
-  // line from the left edge of the screen to the right, rocking as it goes.
+  // The elephant walks along the footer line, from the left edge of the screen to
+  // the right, rocking as it goes. It starts by itself the first time the footer
+  // comes into view; clicking the © in the footer sends it again.
   const egg = document.querySelector('.egg');
   const footer = document.querySelector('.site-footer');
   const line = document.querySelector('.footer-inner');
   let walking = false;
   if (egg && footer && line) {
-    egg.addEventListener('click', () => {
+    const walk = () => {
       if (walking) return;
       walking = true;
       const img = new Image();
@@ -135,7 +136,17 @@
         requestAnimationFrame(step);
       };
       img.onerror = () => { walking = false; };
-    });
+    };
+
+    egg.addEventListener('click', walk);
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        setTimeout(walk, 400);
+      }, { threshold: 1 });
+      io.observe(line);
+    }
   }
 
   // Live local time in London (Contact section)

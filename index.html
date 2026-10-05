@@ -41,9 +41,10 @@
 
   <!-- ===== Fonts & styles ===== -->
   <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/mesh.js" defer></script>
+  <!-- After changing the CSS or JS, raise these ?v= numbers (also in 404.html) so visitors get the new files -->
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <script src="assets/js/main.js?v=5" defer></script>
+  <script src="assets/js/mesh.js?v=5" defer></script>
 
   <!-- Structured data: helps search engines understand who you are -->
   <script type="application/ld+json">
@@ -404,7 +405,7 @@
                   aria-label="An elephant drawn from five parameters, meshed into a graph, wiggling its trunk"></canvas>
           <figcaption>
             <p class="vn-quote">“With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.”</p>
-            <p class="vn-credit">Attributed to John von Neumann. Graph transformers need slightly more.</p>
+            <p class="vn-credit">John von Neumann. Graph transformers need slightly more.</p>
           </figcaption>
         </figure>
 
@@ -433,7 +434,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <!-- Easter egg: clicking the © sends the elephant walking along this line (assets/js/main.js) -->
+      <!-- The elephant walks along this line when the footer comes into view; clicking the © sends it again (assets/js/main.js) -->
       <p class="footer-inner"><button class="egg" type="button" aria-label="Copyright. Click for a surprise">©</button> <span id="year">2026</span> Luca Patrignani</p>
     </div>
   </footer>

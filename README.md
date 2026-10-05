@@ -57,6 +57,12 @@ Check that `git status` lists only the files you meant to change, and nothing
 from `personal_infos/` (`.gitignore` keeps that folder out). The live site
 updates about a minute after the push.
 
+**If you changed the CSS or JavaScript,** first raise the `?v=` number on the
+`style.css`, `main.js` and `mesh.js` links in `index.html` (and on `style.css`
+in `404.html`), e.g. `?v=5` to `?v=6`. Browsers keep files for about 10 minutes,
+and the new number makes them fetch the new versions straight away. To see
+your own changes immediately, use a hard refresh (Ctrl+Shift+R).
+
 ## Updating content
 
 Everything is in `index.html`. Each section starts with a comment banner, and
@@ -99,8 +105,9 @@ Other things you can change:
 - **Greeting words and colours:** `GREETINGS` near the top of `assets/js/main.js`.
 - **Hero mesh and elephant:** the settings at the top of each part of
   `assets/js/mesh.js` (node spacing, how far the glow spreads, trunk wiggle).
-- **Easter egg:** clicking the © in the footer sends the elephant walking along
-  the footer line (`assets/js/main.js`, search for "Easter egg").
+- **Walking elephant:** walks along the footer line when visitors reach the
+  bottom of the page; clicking the © sends it again (`assets/js/main.js`,
+  search for "footer line").
 - **The sliding elephant** (previous version) is kept, commented out, in
   `index.html` and `assets/js/main.js`. Each block explains how to restore it.
 

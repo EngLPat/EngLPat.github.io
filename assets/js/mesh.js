@@ -384,9 +384,10 @@
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
-      const pad = 14;
-      scale = Math.min((W - 2 * pad) / (maxX - minX), (H - 2 * pad) / (maxY - minY + 2 * WIGGLE));
-      ox = W / 2 - ((minX + maxX) / 2) * scale;
+      // Fit inside the canvas, aligned to the left like the caption below it
+      const padX = 3, padY = 6;
+      scale = Math.min((W - 2 * padX) / (maxX - minX), (H - 2 * padY) / (maxY - minY + 2 * WIGGLE));
+      ox = padX - minX * scale;
       oy = H / 2 + ((minY + maxY) / 2) * scale;
       return true;
     }

@@ -499,20 +499,19 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 @media (min-width: 760px) {
-  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); align-items: start; gap: 3rem; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); align-items: stretch; gap: 3rem; }
 }
 
 /* Von Neumann's elephant (assets/js/mesh.js) */
 .vn-fig { width: 100%; max-width: 340px; }
-.vn-canvas { display: block; width: 100%; aspect-ratio: 6 / 5; cursor: crosshair; touch-action: pan-y; }
-.vn-quote {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: var(--text-muted);
-  text-wrap: balance;
+.vn-canvas { display: block; width: 100%; height: 170px; cursor: crosshair; touch-action: pan-y; }
+.vn-quote { margin-top: 0.35rem; font-size: 0.75rem; line-height: 1.45; color: var(--text-muted); text-wrap: balance; }
+.vn-credit { margin-top: 0.15rem; font-size: 0.6875rem; line-height: 1.45; color: var(--text-subtle); }
+@media (min-width: 760px) {
+  /* The elephant takes exactly the height of the "Get in touch" column */
+  .vn-fig { display: flex; flex-direction: column; height: 100%; }
+  .vn-canvas { flex: 1 1 0; min-height: 0; height: 0; }
 }
-.vn-credit { margin-top: 0.4rem; font: 0.75rem/1.5 var(--font-mono); color: var(--text-subtle); }
 
 /* The sliding elephant (previous version, currently commented out in index.html) */
 .slide-fig { width: 100%; max-width: 340px; }
