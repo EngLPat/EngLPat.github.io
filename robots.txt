@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://englpat.github.io/sitemap.xml

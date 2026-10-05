@@ -1,0 +1,96 @@
+<!doctype html>
+<!-- GitHub Pages shows this page for any missing URL. Paths start with "/" so they work from any address. -->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.className = 'js';</script>
+  <title>Page not found | Luca Patrignani</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#101010">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .notfound {
+      min-height: calc(100vh - var(--header-h));
+      display: grid;
+      align-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      padding-block: 3rem;
+    }
+    @media (min-width: 900px) { .notfound { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 4rem; } }
+    .notfound-code { margin-bottom: 1rem; font: 500 0.8125rem/1 var(--font-mono); color: var(--accent); }
+    .notfound .hero-statement { margin-bottom: 2rem; }
+    .fbd { width: 100%; height: auto; }
+    .fbd-caption { margin-top: 0.75rem; font: 0.75rem/1.5 var(--font-mono); color: var(--text-subtle); }
+    .fbd-caption b { color: var(--text-muted); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="/">luca patrignani</a>
+    </div>
+  </header>
+
+  <main class="container notfound">
+    <div>
+      <p class="notfound-code">Error 404</p>
+      <h1 class="hero-name">Page not found</h1>
+      <p class="hero-statement">This page slid away. We had assumed the incline was frictionless.</p>
+      <a class="btn" href="/">← Back to the homepage</a>
+    </div>
+
+    <figure>
+      <svg class="fbd" viewBox="0 0 640 400" role="img" aria-labelledby="fbd-title">
+        <title id="fbd-title">Free-body diagram of an elephant on a frictionless incline</title>
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0 0 10 5 0 10z" fill="#ff5a1f"/>
+          </marker>
+          <marker id="head-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0 0 10 5 0 10z" fill="#8b8b94"/>
+          </marker>
+        </defs>
+
+        <!-- Ground with hatching -->
+        <path d="M20 350H620" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+        <path d="M36 350l-10 12M60 350l-10 12M84 350l-10 12M108 350l-10 12M132 350l-10 12M156 350l-10 12M180 350l-10 12M204 350l-10 12M228 350l-10 12M252 350l-10 12M276 350l-10 12M300 350l-10 12M324 350l-10 12M348 350l-10 12M372 350l-10 12M396 350l-10 12M420 350l-10 12M444 350l-10 12M468 350l-10 12M492 350l-10 12M516 350l-10 12M540 350l-10 12M564 350l-10 12M588 350l-10 12M612 350l-10 12" stroke="rgba(255,255,255,.14)"/>
+
+        <!-- Incline (slope angle about 22°) -->
+        <path d="M40 120 600 350H40Z" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.28)" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M540 350A60 60 0 0 1 544.5 327.2" fill="none" stroke="rgba(255,255,255,.4)"/>
+        <text x="518" y="341" fill="#b3b3ba" font-family="Source Serif 4, Georgia, serif" font-style="italic" font-size="17">θ</text>
+        <text transform="translate(318 262) rotate(22.33)" fill="rgba(255,255,255,.3)" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" letter-spacing="3">NOT TO SCALE</text>
+
+        <!-- The elephant (centre of mass at 227, 142) -->
+        <image href="/assets/img/elephant.png" x="-100" y="-62" width="200" height="124" transform="translate(227.4 141.8) rotate(22.33)"/>
+
+        <!-- Forces -->
+        <g filter="url(#glow)" stroke="#ff5a1f" stroke-width="3" stroke-linecap="round" fill="none">
+          <path d="M227.4 141.8V272" marker-end="url(#head)"/>
+          <path d="M227.4 141.8 267.3 44.7" marker-end="url(#head)"/>
+        </g>
+        <circle cx="227.4" cy="141.8" r="4" fill="#ff5a1f"/>
+        <g fill="#ff8a5c" font-family="Source Serif 4, Georgia, serif" font-style="italic" font-size="20">
+          <text x="238" y="279">W</text>
+          <text x="276" y="50">N</text>
+        </g>
+
+        <!-- No friction, so it accelerates down the slope -->
+        <text transform="translate(334 220) rotate(22.33)" fill="#8b8b94" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15">μ = 0</text>
+        <path d="M420 236 520 277" stroke="#8b8b94" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#head-muted)"/>
+        <text transform="translate(432 222) rotate(22.33)" fill="#8b8b94" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15">a = g sin θ</text>
+      </svg>
+      <figcaption class="fbd-caption"><b>Fig. 404.</b> Free-body diagram of an elephant on a frictionless incline. Not to scale.</figcaption>
+    </figure>
+  </main>
+</body>
+</html>

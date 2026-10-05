@@ -1,0 +1,427 @@
+<!doctype html>
+<!--
+  Luca Patrignani: personal academic website
+  ============================================================================
+  EDITING GUIDE
+  - All content lives in this file, in this order: HERO, PUBLICATIONS, TALKS,
+    CV, CONTACT. Each section starts with a comment banner.
+  - To add an item, copy an existing block in the same list and edit the text.
+  - Search for "TODO" to find what still needs your input.
+  - Colours and fonts are set at the top of assets/css/style.css.
+  ============================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.className = 'js';</script>
+
+  <!-- ===== SEO ===== -->
+  <title>Luca Patrignani | Research Assistant, Imperial College London</title>
+  <meta name="description" content="Luca Patrignani, Research Assistant at Imperial College London: geometric deep learning for learned simulation of physical and engineering systems.">
+  <meta name="author" content="Luca Patrignani">
+  <link rel="canonical" href="https://englpat.github.io/">
+  <meta name="theme-color" content="#101010">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Social previews (LinkedIn, Slack, X, WhatsApp...) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Luca Patrignani">
+  <meta property="og:title" content="Luca Patrignani | Research Assistant, Imperial College London">
+  <meta property="og:description" content="Geometric deep learning for learned simulation of physical and engineering systems.">
+  <meta property="og:url" content="https://englpat.github.io/">
+  <meta property="og:image" content="https://englpat.github.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luca Patrignani, Research Assistant at Imperial College London">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- ===== Fonts & styles ===== -->
+  <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/mesh.js" defer></script>
+
+  <!-- Structured data: helps search engines understand who you are -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Luca Patrignani",
+    "url": "https://englpat.github.io/",
+    "image": "https://englpat.github.io/assets/img/profile.jpg",
+    "email": "mailto:l.patrignani@imperial.ac.uk",
+    "jobTitle": "Research Assistant in Advanced Numerical Methods",
+    "worksFor": { "@type": "CollegeOrUniversity", "name": "Imperial College London", "url": "https://www.imperial.ac.uk/" },
+    "memberOf": { "@type": "Organization", "name": "Pinho Lab", "url": "https://pinholab.cc.ic.ac.uk/" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Sapienza University of Rome" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad Camilo José Cela" }
+    ],
+    "knowsAbout": [
+      "Machine Learning for Computational Mechanics", "Geometric Deep Learning", "Graph Neural Networks",
+      "Graph Transformers", "Digital Twins", "Virtual Reality",
+      "Composite Structures", "Progressive Failure Modelling", "Uncertainty Quantification",
+      "Scientific Machine Learning"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/lucapatrignanii",
+      "https://scholar.google.com/citations?user=K2Ihj38AAAAJ",
+      "https://orcid.org/0009-0004-9348-5912",
+      "https://profiles.imperial.ac.uk/l.patrignani",
+      "https://github.com/EngLPat"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon library: each <symbol> is reused below with <use href="#id"> -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="i-orcid" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-lab" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5v7L4.6 19.6A1.3 1.3 0 0 0 5.8 21.5h12.4a1.3 1.3 0 0 0 1.2-1.9L14 9.5v-7"/><path d="M8.5 2.5h7M7 15.5h10"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 10c0 5.5-7.5 11.5-7.5 11.5S4.5 15.5 4.5 10a7.5 7.5 0 0 1 15 0z"/><circle cx="12" cy="10" r="2.75"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></g></symbol>
+  </svg>
+
+  <!-- ===================================================================
+       HEADER
+       =================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top">luca patrignani</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-menu" class="nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#talks">Talks</a></li>
+          <!-- TODO (optional): to use a hosted CV instead, replace #cv with its link -->
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =================================================================
+         HERO
+         ================================================================= -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Interactive mesh in the background, drawn by assets/js/mesh.js -->
+      <canvas class="hero-mesh" id="hero-mesh" aria-hidden="true"></canvas>
+
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <!-- The greeting cycles through Hi / Ciao / Hola (assets/js/main.js) -->
+          <h1 class="hero-name" id="hero-title"><span class="greet" aria-hidden="true"><span class="greet-word">Hi,</span></span><span class="sr-only">Hi,</span> I’m Luca</h1>
+          <p class="hero-role">
+            Research Assistant in Advanced Numerical Methods<br>
+            <a class="accent-link" href="https://profiles.imperial.ac.uk/l.patrignani" target="_blank" rel="noopener">Imperial College London</a>
+          </p>
+          <p class="hero-statement">
+            I use geometric deep learning for learned simulation of physical and engineering systems,
+            from composite failure to cognitive digital twins, knowledge graphs and VR.
+          </p>
+
+          <ul class="hero-links" aria-label="Profiles">
+            <li><a class="btn" href="https://www.linkedin.com/in/lucapatrignanii" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+            <li><a class="btn" href="https://scholar.google.com/citations?user=K2Ihj38AAAAJ" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+            <li><a class="btn" href="https://github.com/EngLPat" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+            <li><a class="btn" href="https://pinholab.cc.ic.ac.uk/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-lab"/></svg>Pinho Lab</a></li>
+          </ul>
+        </div>
+
+        <!-- To change the photo, replace assets/img/profile.jpg (square, about 800×800 px) -->
+        <img class="hero-photo" src="assets/img/profile.jpg" alt="Luca Patrignani" width="800" height="800" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PUBLICATIONS
+         -----------------------------------------------------------------
+         TEMPLATE: copy this block to add a paper (newest first):
+
+         <article class="pub">
+           <p class="pub-meta">2026</p>
+           <h3 class="pub-title"><a href="https://doi.org/..." target="_blank" rel="noopener">Paper title</a></h3>
+           <p class="pub-authors"><strong>L. Patrignani</strong>, A. Coauthor</p>
+           <p class="pub-venue"><em>Journal name</em></p>
+           <div class="pub-links">
+             <a class="chip" href="https://doi.org/..." target="_blank" rel="noopener">DOI</a>
+             <details class="bibtex">
+               <summary class="chip">BibTeX</summary>
+               <div class="bibtex-box">
+                 <button class="copy-btn" type="button">Copy</button>
+                 <pre><code>@article{key, ... }</code></pre>
+               </div>
+             </details>
+           </div>
+         </article>
+         ================================================================= -->
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <h2 class="section-title" id="publications-title">Publications</h2>
+
+        <div class="pub-grid">
+          <article class="pub">
+            <p class="pub-meta">2026</p>
+            <h3 class="pub-title"><a href="https://doi.org/10.1016/j.cma.2026.118753" target="_blank" rel="noopener">Graph neural networks with hybrid local-global attention for effective prediction of mechanical response in structures</a></h3>
+            <p class="pub-authors"><strong>L. Patrignani</strong>, S.T. Pinho</p>
+            <p class="pub-venue"><em>Computer Methods in Applied Mechanics and Engineering</em></p>
+            <div class="pub-links">
+              <a class="chip" href="https://doi.org/10.1016/j.cma.2026.118753" target="_blank" rel="noopener">DOI</a>
+              <a class="chip" href="https://github.com/EngLPat/local-global-graph-transformer" target="_blank" rel="noopener">Code</a>
+              <details class="bibtex">
+                <summary class="chip">BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+<pre><code>@article{patrignani2026hybrid,
+  title   = {Graph neural networks with hybrid local--global attention for effective prediction of mechanical response in structures},
+  author  = {Patrignani, Luca and Pinho, S. T.},
+  journal = {Computer Methods in Applied Mechanics and Engineering},
+  volume  = {452},
+  pages   = {118753},
+  year    = {2026},
+  doi     = {10.1016/j.cma.2026.118753}
+}</code></pre>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="pub">
+            <p class="pub-meta">2026 · Under review</p>
+            <h3 class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7286223" target="_blank" rel="noopener">Autoregressive graph transformers with local-global attention for progressive damage evolution in composite laminates</a></h3>
+            <p class="pub-authors"><strong>L. Patrignani</strong>, S.T. Pinho</p>
+            <p class="pub-venue">Preprint on SSRN</p>
+            <div class="pub-links">
+              <a class="chip" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7286223" target="_blank" rel="noopener">SSRN</a>
+              <details class="bibtex">
+                <summary class="chip">BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+<pre><code>@misc{patrignani2026autoregressive,
+  title  = {Autoregressive graph transformers with local--global attention for progressive damage evolution in composite laminates},
+  author = {Patrignani, Luca and Pinho, S. T.},
+  year   = {2026},
+  note   = {Preprint, SSRN 7286223. Under review at Computer Methods in Applied Mechanics and Engineering}
+}</code></pre>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="pub">
+            <p class="pub-meta">2026</p>
+            <h3 class="pub-title"><a href="https://doi.org/10.1002/cae.70261" target="_blank" rel="noopener">A structured virtual reality laboratory methodology for teaching structural mechanics to undergraduate engineers</a></h3>
+            <p class="pub-authors"><strong>L. Patrignani</strong>, D.T. Venetsanos, S.T. Pinho</p>
+            <p class="pub-venue"><em>Computer Applications in Engineering Education</em></p>
+            <div class="pub-links">
+              <a class="chip" href="https://doi.org/10.1002/cae.70261" target="_blank" rel="noopener">DOI</a>
+              <details class="bibtex">
+                <summary class="chip">BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+<pre><code>@article{patrignani2026vrlab,
+  title   = {A structured virtual reality laboratory methodology for teaching structural mechanics to undergraduate engineers},
+  author  = {Patrignani, Luca and Venetsanos, D. T. and Pinho, S. T.},
+  journal = {Computer Applications in Engineering Education},
+  volume  = {34},
+  number  = {5},
+  pages   = {e70261},
+  year    = {2026},
+  doi     = {10.1002/cae.70261}
+}</code></pre>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="pub">
+            <p class="pub-meta">2025</p>
+            <h3 class="pub-title"><a href="https://doi.org/10.1016/j.actaastro.2025.07.007" target="_blank" rel="noopener">SpaceKG: Towards exploiting knowledge graphs in space systems</a></h3>
+            <p class="pub-authors"><strong>L. Patrignani</strong>, E. Laurenza, E. Sallinger, A. Vlad, P. Gaudenzi</p>
+            <p class="pub-venue"><em>Acta Astronautica</em></p>
+            <div class="pub-links">
+              <a class="chip" href="https://doi.org/10.1016/j.actaastro.2025.07.007" target="_blank" rel="noopener">DOI</a>
+              <details class="bibtex">
+                <summary class="chip">BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+<pre><code>@article{patrignani2025spacekg,
+  title   = {{SpaceKG}: Towards exploiting Knowledge Graphs in space systems},
+  author  = {Patrignani, Luca and Laurenza, E. and Sallinger, E. and Vlad, A. and Gaudenzi, P.},
+  journal = {Acta Astronautica},
+  year    = {2025},
+  doi     = {10.1016/j.actaastro.2025.07.007}
+}</code></pre>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         TALKS
+         -----------------------------------------------------------------
+         TEMPLATE: copy this block to add a talk or poster:
+
+         <li class="talk">
+           <span class="talk-year">2026</span>
+           <span class="talk-event">Conference name <span class="award">★ Award (optional)</span></span>
+           <span class="talk-meta">Oral · City, Country</span>
+         </li>
+         ================================================================= -->
+    <section class="section" id="talks" aria-labelledby="talks-title">
+      <div class="container">
+        <h2 class="section-title" id="talks-title">Talks &amp; Posters</h2>
+
+        <ol class="talk-list">
+          <li class="talk">
+            <span class="talk-year">2025</span>
+            <span class="talk-event">NASA Langley Research Center</span>
+            <span class="talk-meta">Invited seminar · Hampton, USA</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2026</span>
+            <span class="talk-event">AIComp 2026 <span class="award">★ Best Paper Award</span></span>
+            <span class="talk-meta">Oral · Vancouver, Canada</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2026</span>
+            <span class="talk-event">ECCM22</span>
+            <span class="talk-meta">Oral · Oslo, Norway</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2026</span>
+            <span class="talk-event">Aeronautics Research Showcase <span class="award">★ First Prize</span></span>
+            <span class="talk-meta">Poster · London, UK</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2025</span>
+            <span class="talk-event">EUROMECH Colloquium 656</span>
+            <span class="talk-meta">Oral · Gothenburg, Sweden</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2025</span>
+            <span class="talk-event">COMPOSITES 2025 (ECCOMAS)</span>
+            <span class="talk-meta">Oral · Vienna, Austria</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2025</span>
+            <span class="talk-event">AIComp 2025</span>
+            <span class="talk-meta">Oral · Bristol, UK</span>
+          </li>
+          <li class="talk">
+            <span class="talk-year">2025</span>
+            <span class="talk-event">ICCM24</span>
+            <span class="talk-meta">Oral · Baltimore, USA</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CV  (the "CV" link in the header points here)
+         ================================================================= -->
+    <section class="section" id="cv" aria-labelledby="cv-title">
+      <div class="container">
+        <h2 class="section-title" id="cv-title">CV</h2>
+
+        <div class="cv-grid">
+          <div>
+            <h3 class="cv-heading">Experience</h3>
+            <ul class="cv-list">
+              <li><span class="cv-when">2024–now</span><strong>PhD Researcher &amp; Research Assistant</strong><span>Imperial College London</span></li>
+              <li><span class="cv-when">2023–2024</span><strong>Structural Analyst</strong><span>Airbus, Madrid</span></li>
+              <li><span class="cv-when">2022–2023</span><strong>Research Collaborator</strong><span>Bank of Italy, Rome</span></li>
+              <li><span class="cv-when">2021</span><strong>Research Collaborator</strong><span>National Institute for Nuclear Physics, Frascati</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="cv-heading">Education</h3>
+            <ul class="cv-list">
+              <li><span class="cv-when">2024–now</span><strong>PhD, Advanced Numerical Methods for Aeronautical Structures</strong><span>Imperial College London</span></li>
+              <li><span class="cv-when">2023–2024</span><strong>Master, Business Management &amp; Data Analytics</strong><span>Universidad Camilo José Cela</span></li>
+              <li><span class="cv-when">2021–2023</span><strong>MSc, Space &amp; Astronautical Engineering</strong><span>Sapienza University of Rome</span></li>
+              <li><span class="cv-when">2018–2021</span><strong>BSc, Aerospace Engineering</strong><span>Sapienza University of Rome</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="cv-heading">Honours</h3>
+            <ul class="cv-list">
+              <li><span class="cv-when">2026</span><strong>Isambard-AI compute grant</strong><span>UK AI Research Resource</span></li>
+              <li><span class="cv-when">2026</span><strong>Best Paper Award</strong><span>AIComp 2026</span></li>
+              <li><span class="cv-when">2026</span><strong>First Prize, poster competition</strong><span>Aeronautics Research Showcase</span></li>
+              <li><span class="cv-when">2025</span><strong>Best Graduate Teaching Assistant</strong><span>Imperial College London</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CONTACT
+         ================================================================= -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title" id="contact-title">Get in touch</h2>
+          <ul class="contact-list">
+            <li class="contact-email"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:l.patrignani@imperial.ac.uk">l.patrignani@imperial.ac.uk</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-orcid"/></svg><a href="https://orcid.org/0009-0004-9348-5912" target="_blank" rel="noopener">ORCID 0009-0004-9348-5912</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Department of Aeronautics, Imperial College London</span></li>
+            <!-- Filled in by assets/js/main.js; stays hidden if JavaScript is off -->
+            <li class="local-time" hidden><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span><time id="london-time"></time> in London</span></li>
+          </ul>
+        </div>
+
+        <!-- The elephant slides down when this section comes into view (assets/js/main.js) -->
+        <figure class="slide-fig">
+          <svg class="slide-svg" viewBox="0 0 360 220" role="img" aria-label="An elephant sliding down a frictionless incline">
+            <path d="M0 190H360" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+            <path d="M12 190l-8 10M28 190l-8 10M44 190l-8 10M60 190l-8 10M76 190l-8 10M92 190l-8 10M108 190l-8 10M124 190l-8 10M140 190l-8 10M156 190l-8 10M172 190l-8 10M188 190l-8 10M204 190l-8 10M220 190l-8 10M236 190l-8 10M252 190l-8 10M268 190l-8 10M284 190l-8 10M300 190l-8 10M316 190l-8 10M332 190l-8 10M348 190l-8 10" stroke="rgba(255,255,255,.12)"/>
+            <path d="M16 50 250 190H16Z" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.28)" stroke-width="1.5" stroke-linejoin="round"/>
+            <text transform="translate(150 113) rotate(30.9)" fill="#8b8b94" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13">μ = 0</text>
+            <g id="slider" transform="translate(48.6 46.1) rotate(30.9)">
+              <image href="assets/img/elephant.png" x="-39" y="-24.2" width="78" height="48.4"/>
+            </g>
+          </svg>
+          <figcaption class="slide-caption">
+            <span>Assumption: frictionless contact.</span>
+            <button class="chip slide-replay" type="button" hidden>↻ Again</button>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-inner">© <span id="year">2026</span> Luca Patrignani</p>
+    </div>
+  </footer>
+</body>
+</html>
