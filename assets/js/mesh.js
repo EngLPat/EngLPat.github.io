@@ -475,5 +475,16 @@
       if (node >= 0) glow.excite(node, HOPS + 2);
       start();
     });
+
+    // Click (or tap): the elephant answers von Neumann, from the top of its head
+    canvas.addEventListener('click', () => {
+      if (!window.showBalloon) return;
+      let top = 0;
+      for (let i = 1; i < pos.length; i++) if (pos[i][1] < pos[top][1]) top = i;
+      const r = canvas.getBoundingClientRect();
+      window.showBalloon(r.left + pos[top][0], r.top + pos[top][1] - 2, 'I’m not fat. I’m well fitted.', 2600);
+      wiggleUntil = performance.now() + PERIOD * 1000;
+      start();
+    });
   })();
 })();

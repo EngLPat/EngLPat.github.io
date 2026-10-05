@@ -12,6 +12,51 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Speech balloons. showBalloon(x, y, text, ms) puts a balloon whose tail
+  // points at (x, y) in viewport coordinates. With ms it hides itself after that
+  // many milliseconds; without, call .hide() on the returned object.
+  // Also used by the elephant in mesh.js (window.showBalloon).
+  function showBalloon(x, y, text, ms) {
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    b.setAttribute('role', 'status');
+    b.textContent = text;
+    document.body.appendChild(b);
+    const bw = b.offsetWidth, bh = b.offsetHeight, TAIL = 18;
+    const left = Math.min(Math.max(8, x - TAIL), document.documentElement.clientWidth - bw - 8);
+    b.style.left = (left + window.scrollX) + 'px';
+    b.style.top = (y - bh - 10 + window.scrollY) + 'px';
+    b.style.setProperty('--tail', Math.min(Math.max(12, x - left), bw - 12) + 'px');
+    requestAnimationFrame(() => b.classList.add('is-on'));
+    const hide = () => {
+      b.classList.remove('is-on');
+      setTimeout(() => b.remove(), 250);
+    };
+    if (ms) setTimeout(hide, ms);
+    return { hide };
+  }
+  window.showBalloon = showBalloon;
+
+  // Any element with data-balloon="..." shows that text on hover (or on tap)
+  document.querySelectorAll('[data-balloon]').forEach((el) => {
+    let current = null, lastType = 'mouse';
+    const at = () => { const r = el.getBoundingClientRect(); return [r.left + Math.min(28, r.width / 2), r.top]; };
+    el.addEventListener('pointerdown', (e) => { lastType = e.pointerType; });
+    el.addEventListener('pointerenter', (e) => {
+      if (e.pointerType === 'mouse' && !current) current = showBalloon(...at(), el.dataset.balloon);
+    });
+    el.addEventListener('pointerleave', (e) => {
+      if (e.pointerType === 'mouse' && current) { current.hide(); current = null; }
+    });
+    el.addEventListener('click', () => {
+      if (lastType !== 'mouse' && !current) {
+        const b = showBalloon(...at(), el.dataset.balloon, 2200);
+        current = b;
+        setTimeout(() => { current = null; }, 2300);
+      }
+    });
+  });
+
   // Greeting: "Hi," / "Ciao," / "Hola," each in its own colour.
   // The hero mesh (mesh.js) glows in the colour currently shown.
   const GREETINGS = [
@@ -117,19 +162,43 @@
 
         if (reduceMotion) {                                 // no walking: appear, pause, leave
           img.style.transform = `translateX(${(width - w) / 2}px)`;
+          img.addEventListener('click', () => {
+            const r = img.getBoundingClientRect();
+            showBalloon(r.left + r.width * 0.7, r.top + 4, 'Baaarrrr!', 1600);
+          });
           setTimeout(done, 2500);
           return;
         }
         const SPEED = 220;                                  // pixels per second
         const STEPS = 2.2;                                  // waddles per second
+        const PAUSE = 1600;                                 // ms it stands still when clicked
         const duration = (width + 2 * w) / SPEED;
-        const start = performance.now();
+        let t = 0, last = performance.now(), pausedFrom = 0;
+
+        // Click (or tap) the elephant: it stops, trumpets, then carries on
+        img.addEventListener('click', () => {
+          if (pausedFrom) return;
+          pausedFrom = performance.now();
+          const r = img.getBoundingClientRect();
+          showBalloon(r.left + r.width * 0.7, r.top + 4, 'Baaarrrr!', PAUSE);
+        });
+
         const step = (now) => {
-          const t = (now - start) / 1000;
+          const dt = (now - last) / 1000;
+          last = now;
+          let rock, bob;
+          if (pausedFrom && now - pausedFrom < PAUSE) {
+            const p = (now - pausedFrom) / 1000;
+            rock = 3 * Math.sin(2 * Math.PI * 9 * p) * Math.max(0, 1 - p / 0.6);   // a short trumpet shake
+            bob = 0;
+          } else {
+            pausedFrom = 0;
+            t += dt;
+            rock = 7 * Math.sin(2 * Math.PI * STEPS * t);                       // clockwise, then anticlockwise
+            bob = 1.5 * Math.abs(Math.sin(2 * Math.PI * STEPS * t));            // a little bounce per step
+          }
           if (t > duration) { done(); return; }
           const x = -w + SPEED * t;
-          const rock = 7 * Math.sin(2 * Math.PI * STEPS * t);           // clockwise, then anticlockwise
-          const bob = 1.5 * Math.abs(Math.sin(2 * Math.PI * STEPS * t)); // a little bounce per step
           img.style.transform = `translate(${x.toFixed(1)}px, ${(-bob).toFixed(1)}px) rotate(${rock.toFixed(2)}deg)`;
           requestAnimationFrame(step);
         };

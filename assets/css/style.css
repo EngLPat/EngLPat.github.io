@@ -539,8 +539,41 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   left: 0;
   width: 84px;
   height: auto;
-  pointer-events: none;
+  cursor: pointer;
   will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Speech balloons (assets/js/main.js): used by data-balloon and the elephants */
+.balloon {
+  position: absolute;
+  z-index: 60;
+  padding: 0.45rem 0.75rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  font: 500 0.8125rem/1.35 var(--font-sans);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px) scale(0.96);
+  transform-origin: var(--tail, 18px) 100%;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.balloon.is-on { opacity: 1; transform: none; }
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: calc(var(--tail, 18px) - 5px);
+  width: 10px;
+  height: 10px;
+  background: var(--surface);
+  border-right: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  transform: rotate(45deg);
 }
 
 /* 11. Motion & print ----------------------------------------------------- */

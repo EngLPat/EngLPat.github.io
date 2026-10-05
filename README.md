@@ -107,7 +107,12 @@ Other things you can change:
   `assets/js/mesh.js` (node spacing, how far the glow spreads, trunk wiggle).
 - **Walking elephant:** walks along the footer line when visitors reach the
   bottom of the page; clicking the © sends it again (`assets/js/main.js`,
-  search for "footer line").
+  search for "footer line"). Clicking the elephant itself makes it stop
+  and trumpet ("Baaarrrr!").
+- **Speech balloons:** add `data-balloon="Your text"` to any element in
+  `index.html` and it shows a small balloon on hover (or tap on phones). The CV's
+  Best Paper Award has one. Von Neumann's elephant answers when clicked (text in
+  `assets/js/mesh.js`, search for "well fitted").
 - **The sliding elephant** (previous version) is kept, commented out, in
   `index.html` and `assets/js/main.js`. Each block explains how to restore it.
 
