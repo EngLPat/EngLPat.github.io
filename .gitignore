@@ -1,6 +1,3 @@
-# Private files: never publish this folder
-personal_infos/
-
 # OS clutter
 .DS_Store
 Thumbs.db
