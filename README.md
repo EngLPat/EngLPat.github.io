@@ -17,7 +17,7 @@ Personal_website/
 │   ├── css/style.css       ← all styling (colours and fonts at the top)
 │   ├── js/main.js          ← menu, greeting, London time, BibTeX copy
 │   ├── js/mesh.js          ← the hero mesh and von Neumann's elephant
-│   ├── fonts/              ← Inter and Source Serif 4, with their licences (OFL)
+│   ├── fonts/              ← Inter, with its licence (OFL)
 │   └── img/
 │       ├── profile.jpg         ← your photo in the hero (square, 800×800)
 │       ├── og-image.png        ← preview image for LinkedIn/Slack/X (1200×630)
@@ -40,34 +40,22 @@ Personal_website/
 - **Python:** run `python -m http.server 8000` in this folder, then open
   http://localhost:8000.
 
-## Deploy to GitHub Pages
+## Publishing updates
 
-1. On GitHub, create a **public** repository named exactly `EngLPat.github.io`.
-2. Upload the site from this folder:
-   ```bash
-   git init
-   git add index.html 404.html README.md robots.txt sitemap.xml .nojekyll .gitignore assets
-   git status
-   ```
-   Check that `git status` lists exactly 20 files, all of them under
-   "Changes to be committed": the 7 files above plus 13 inside `assets/`.
-   Nothing from `personal_infos/` should appear. Then:
-   ```bash
-   git commit -m "First version of my website"
-   git branch -M main
-   git remote add origin https://github.com/EngLPat/EngLPat.github.io.git
-   git push -u origin main
-   ```
-   `.gitignore` keeps `personal_infos/` out automatically. If you upload
-   through the GitHub website instead, drag in everything **except**
-   `personal_infos`, because the web uploader ignores `.gitignore`.
-3. In the repository, open **Settings → Pages**, choose **Deploy from a
-   branch**, branch `main`, folder `/ (root)`, and click **Save**.
-4. After about a minute the site is live at https://englpat.github.io/.
+The site is live at https://englpat.github.io/ (repository
+`EngLPat/EngLPat.github.io`, branch `main`). After editing, run this in
+**PowerShell** in this folder:
 
-To update the site, edit the files, then run `git add .` and `git status`
-(check nothing unexpected is listed), then `git commit -m "Update"` and
-`git push`. `.gitignore` keeps `personal_infos/` out every time.
+```
+git add -A
+git status
+git commit -m "Describe your change"
+git push
+```
+
+Check that `git status` lists only the files you meant to change, and nothing
+from `personal_infos/` (`.gitignore` keeps that folder out). The live site
+updates about a minute after the push.
 
 ## Updating content
 
@@ -103,15 +91,16 @@ The first block of `assets/css/style.css` (`:root`) holds the design tokens:
 - `--bg`, `--surface`, `--border`: background, card and line colours
 - `--text`, `--text-muted`, `--text-subtle`: text greys
 - `--accent`: link and highlight colour
-- `--font-sans`, `--font-serif`: Inter and Source Serif 4. The font files are
-  in `assets/fonts/` and served from your own site, so visitors never contact
-  Google.
+- `--font-sans`: Inter. The font file is in `assets/fonts/` and served from
+  your own site, so visitors never contact Google.
 
 Other things you can change:
 
 - **Greeting words and colours:** `GREETINGS` near the top of `assets/js/main.js`.
 - **Hero mesh and elephant:** the settings at the top of each part of
   `assets/js/mesh.js` (node spacing, how far the glow spreads, trunk wiggle).
+- **Easter egg:** clicking the © in the footer sends the elephant walking along
+  the footer line (`assets/js/main.js`, search for "Easter egg").
 - **The sliding elephant** (previous version) is kept, commented out, in
   `index.html` and `assets/js/main.js`. Each block explains how to restore it.
 

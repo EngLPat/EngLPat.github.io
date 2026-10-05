@@ -91,6 +91,53 @@
   }
   END OF PREVIOUS VERSION */
 
+  // Easter egg: click the © in the footer and the elephant walks along the footer
+  // line from the left edge of the screen to the right, rocking as it goes.
+  const egg = document.querySelector('.egg');
+  const footer = document.querySelector('.site-footer');
+  const line = document.querySelector('.footer-inner');
+  let walking = false;
+  if (egg && footer && line) {
+    egg.addEventListener('click', () => {
+      if (walking) return;
+      walking = true;
+      const img = new Image();
+      img.src = 'assets/img/elephant.png';
+      img.alt = '';
+      img.className = 'walker';
+      img.setAttribute('aria-hidden', 'true');
+      img.onload = () => {
+        footer.appendChild(img);
+        const w = img.offsetWidth, h = img.offsetHeight;
+        const lineY = line.offsetTop;                      // the footer's border line
+        img.style.top = (lineY - h / 2) + 'px';            // body centred on the line
+        const width = footer.clientWidth;
+        const done = () => { img.remove(); walking = false; };
+
+        if (reduceMotion) {                                 // no walking: appear, pause, leave
+          img.style.transform = `translateX(${(width - w) / 2}px)`;
+          setTimeout(done, 2500);
+          return;
+        }
+        const SPEED = 220;                                  // pixels per second
+        const STEPS = 2.2;                                  // waddles per second
+        const duration = (width + 2 * w) / SPEED;
+        const start = performance.now();
+        const step = (now) => {
+          const t = (now - start) / 1000;
+          if (t > duration) { done(); return; }
+          const x = -w + SPEED * t;
+          const rock = 7 * Math.sin(2 * Math.PI * STEPS * t);           // clockwise, then anticlockwise
+          const bob = 1.5 * Math.abs(Math.sin(2 * Math.PI * STEPS * t)); // a little bounce per step
+          img.style.transform = `translate(${x.toFixed(1)}px, ${(-bob).toFixed(1)}px) rotate(${rock.toFixed(2)}deg)`;
+          requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      img.onerror = () => { walking = false; };
+    });
+  }
+
   // Live local time in London (Contact section)
   const londonTime = document.getElementById('london-time');
   if (londonTime) {
