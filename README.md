@@ -15,8 +15,8 @@ Personal_website/
 ├── .gitignore              ← keeps personal_infos/ out of the repository
 ├── assets/
 │   ├── css/style.css       ← all styling (colours and fonts at the top)
-│   ├── js/main.js          ← menu, greeting, sliding elephant, London time, BibTeX copy
-│   ├── js/mesh.js          ← interactive mesh behind the hero
+│   ├── js/main.js          ← menu, greeting, London time, BibTeX copy
+│   ├── js/mesh.js          ← the hero mesh and von Neumann's elephant
 │   ├── fonts/              ← Inter and Source Serif 4, with their licences (OFL)
 │   └── img/
 │       ├── profile.jpg         ← your photo in the hero (square, 800×800)
@@ -110,8 +110,10 @@ The first block of `assets/css/style.css` (`:root`) holds the design tokens:
 Other things you can change:
 
 - **Greeting words and colours:** `GREETINGS` near the top of `assets/js/main.js`.
-- **Hero mesh:** the settings at the top of `assets/js/mesh.js` (node spacing,
-  how far the glow spreads, how fast it fades).
+- **Hero mesh and elephant:** the settings at the top of each part of
+  `assets/js/mesh.js` (node spacing, how far the glow spreads, trunk wiggle).
+- **The sliding elephant** (previous version) is kept, commented out, in
+  `index.html` and `assets/js/main.js`. Each block explains how to restore it.
 
 ## After publishing
 

@@ -39,6 +39,10 @@
     window.addEventListener('resize', () => { greet.style.width = greetWord.getBoundingClientRect().width + 'px'; });
   }
 
+  /* PREVIOUS VERSION, kept for later: the sliding elephant in the Contact section.
+     To bring it back, remove this comment's opening and closing markers and
+     restore the matching block in index.html.
+
   // The elephant on a frictionless incline (Contact section).
   // On the slope it accelerates at a constant rate; on the flat ground nothing
   // slows it down, so it keeps its speed and slides out of the picture.
@@ -85,6 +89,7 @@
     io.observe(slider.ownerSVGElement);
     if (replay) replay.addEventListener('click', run);
   }
+  END OF PREVIOUS VERSION */
 
   // Live local time in London (Contact section)
   const londonTime = document.getElementById('london-time');

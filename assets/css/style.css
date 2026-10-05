@@ -519,7 +519,21 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); align-items: end; gap: 3rem; }
 }
 
-/* The sliding elephant */
+/* Von Neumann's elephant (assets/js/mesh.js) */
+.vn-fig { width: 100%; max-width: 340px; }
+.vn-canvas { display: block; width: 100%; aspect-ratio: 6 / 5; cursor: crosshair; touch-action: pan-y; }
+.vn-quote {
+  margin-top: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-wrap: balance;
+}
+.vn-credit { margin-top: 0.4rem; font: 0.75rem/1.5 var(--font-mono); color: var(--text-subtle); }
+
+/* The sliding elephant (previous version, currently commented out in index.html) */
 .slide-fig { width: 100%; max-width: 340px; }
 .slide-svg { width: 100%; height: auto; overflow: hidden; }
 .slide-caption {

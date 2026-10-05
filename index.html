@@ -398,7 +398,20 @@
           </ul>
         </div>
 
-        <!-- The elephant slides down when this section comes into view (assets/js/main.js) -->
+        <!-- von Neumann's elephant as a mesh graph (assets/js/mesh.js).
+             Hover to wiggle its trunk; the glow spreads like message passing. -->
+        <figure class="vn-fig">
+          <canvas class="vn-canvas" id="vn-elephant" role="img"
+                  aria-label="An elephant drawn from five parameters, meshed into a graph, wiggling its trunk"></canvas>
+          <figcaption>
+            <p class="vn-quote">“With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.”</p>
+            <p class="vn-credit">Attributed to John von Neumann. Graph transformers need slightly more.</p>
+          </figcaption>
+        </figure>
+
+        <!-- PREVIOUS VERSION, kept for later: the elephant sliding down a frictionless incline.
+             To bring it back, remove the comment markers around this block and around the
+             "sliding elephant" block in assets/js/main.js, and delete the vn-fig figure above.
         <figure class="slide-fig">
           <svg class="slide-svg" viewBox="0 0 360 220" role="img" aria-label="An elephant sliding down a frictionless incline">
             <path d="M0 190H360" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
@@ -414,6 +427,7 @@
             <button class="chip slide-replay" type="button" hidden>↻ Again</button>
           </figcaption>
         </figure>
+        END OF PREVIOUS VERSION -->
       </div>
     </section>
   </main>
