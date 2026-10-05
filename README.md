@@ -14,7 +14,7 @@ assets/
   js/main.js          menu, greeting and small interactions
   js/mesh.js          the interactive meshes (hero and elephant)
   fonts/              Inter font and its licence
-  img/                photo, icons, preview image
+  img/                photo, icons, preview and banner images
 robots.txt            for search engines
 sitemap.xml           for search engines
 google…html           site verification for Google Search Console
