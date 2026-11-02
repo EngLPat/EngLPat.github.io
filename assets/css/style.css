@@ -248,6 +248,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 .chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip .icon { width: 0.875rem; height: 0.875rem; }
 
 /* 5. Hero ---------------------------------------------------------------- */
 .hero {
